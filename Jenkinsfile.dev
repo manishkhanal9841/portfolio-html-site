@@ -5,7 +5,7 @@ pipeline {
         stage('Code Fetch') {
             steps {
                 echo 'Code fetch from git'
-                git url:'https://github.com/manishkhanal9841/portfolio-html-site.git', branch:'master'
+                git url:'https://github.com/manishkhanal9841/portfolio-html-site.git', branch:'dev'
             }
         }
         
