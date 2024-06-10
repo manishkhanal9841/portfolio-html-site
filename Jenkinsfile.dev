@@ -2,6 +2,13 @@ pipeline {
     agent any
 
     stages {
+        stage('Repo scan') {
+            steps {
+                echo 'Repo being scanned'
+                sh 'trivy repo https://github.com/manishkhanal9841/portfolio-html-site.git'
+            }
+        }
+
         stage('Code Fetch') {
             steps {
                 echo 'Code fetch from git'
@@ -12,6 +19,13 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'docker build -t my-new-website-dev .'
+            }
+        }
+
+        stage('Image scan') {
+            steps {
+                echo 'Image being scanned'
+                sh 'trivy image my-new-website-dev'
             }
         }
         
