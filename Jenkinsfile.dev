@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage('Repo scan') {
             steps {
-                echo 'Repo being scanned'
+                echo 'Repo being scanned.'
                 sh 'trivy repo https://github.com/manishkhanal9841/portfolio-html-site.git'
             }
         }
 
         stage('Code Fetch') {
             steps {
-                echo 'Code fetch from git'
+                echo 'Code fetch from git.'
                 git url:'https://github.com/manishkhanal9841/portfolio-html-site.git', branch:'dev'
             }
         }
