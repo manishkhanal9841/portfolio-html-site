@@ -18,6 +18,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Code Deploy to container'
+                sh 'docker kill my-new-website-dev'
                 sh 'docker run -d -p 81:80 my-new-website-dev'
             }
         }
